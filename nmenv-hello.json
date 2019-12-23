@@ -6,8 +6,8 @@
 	extract_dir : "nmenv-hello",
 	description : "test",
 	uninstaller : {
-		script : "& $dir\\nmenv-install.ps1 -AppPath $dir",
+		script : "Start-Process -NoNewWindow -Wait -FilePath 'powershell' -ArgumentList \"-NoLogo -File $dir\\nmenv-support.ps1 -AppPath $dir -Uninstall\"",
 		keep : false
 	},
-	post_install : "& $dir\\nmenv-install.ps1 -AppPath $dir -Install"
+	post_install : "Start-Process -NoNewWindow -Wait -FilePath 'powershell' -ArgumentList \"-NoLogo -File $dir\\nmenv-support.ps1 -AppPath $dir -PostInstall\""
 }
