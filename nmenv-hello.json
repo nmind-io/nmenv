@@ -1,9 +1,13 @@
 {
 	version: "1.0",
-	url: "https://nmind.io/nmenv-bucket/hello.ps1",
+	url: "https://nmind.io/nmenv-packages/nmenv-hello_1.0.zip",
 	bin: "hello.ps1",
 	depends : "",
+	extract_dir : "nmenv-hello",
 	description : "test",
-	post_install : "",
-	pre_install : ""
+	uninstaller : {
+		script : "& $dir\\nmenv-install.ps1 -AppPath $dir",
+		keep : false
+	},
+	post_install : "& $dir\\nmenv-install.ps1 -AppPath $dir -Install"
 }
